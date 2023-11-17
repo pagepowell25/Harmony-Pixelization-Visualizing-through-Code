@@ -32,7 +32,6 @@ public class App extends PApplet{
 	static String filePath = "mid"  + sys.getSeparator() +  "ABBA_-_Gimme_Gimme_Gimme.mid"; // path to the midi file -- you can change this to your file
 															// location/name
 
-
 	DrawingShapes drawing = new DrawingShapes(this);
 
 
@@ -50,7 +49,7 @@ public class App extends PApplet{
 		// uncomment below when you are ready to test or present sound output
 		// make sure that it is commented out for your final submit to github (eg. when
 		// pushing)
-		//3setup();
+		//setup();
 		//playMelody();
 		generateMelody();
 		//testAndTrainMarkovChainGen();
@@ -93,16 +92,16 @@ public class App extends PApplet{
 		    	// for (int i = 0; i < 100000; i++)  //produces 100000 melodies
             	// {
 	
-				// 		ArrayList<Integer> pitches = pitchGen.generate(20); //creates a melody using an Arraylist of pitches
-				// 		pitchTrain.train(pitches); //calls the train function to the pitchTrain array (creates pitches)
-				// 		ArrayList<Double> rhythms = rhythmGen.generate(20); //creates a melody using an ArrayList of rhythms
-				// 		rhythmTrain.train(rhythms); //calls the train function to the rhythmTrain array (creates rhythms)
+				 		ArrayList<Integer> pitches = pitchGen.generate(250); //creates a melody using an Arraylist of pitches
+				 		pitchTrain.train(pitches); //calls the train function to the pitchTrain array (creates pitches)
+				 		ArrayList<Double> rhythms = rhythmGen.generate(250); //creates a melody using an ArrayList of rhythms
+				 		rhythmTrain.train(rhythms); //calls the train function to the rhythmTrain array (creates rhythms)
 						
             	// }
 
 					ArrayList song = pitchGen.generate(20); //produces 20 notes from pitches 
-    					player.setMelody(song);  //outputs sound based on probability of pitches generated 
-		   				player.setRhythm(rhythmGen.generate(20)); //produces 20 notes from rhythms 
+    					player.setMelody(pitches);  //outputs sound based on probability of pitches generated 
+		   				player.setRhythm(rhythms); //produces 20 notes from rhythms 
 						System.out.println(song);
 				
 
@@ -111,8 +110,6 @@ public class App extends PApplet{
 
 
 		} 	
-
-
 
 
 	// doing all the setup stuff
@@ -124,41 +121,28 @@ public class App extends PApplet{
 		// form you need for the assignment
 
 		midiSetup(filePath);
+		generateMelody();
 		background(127);
-
 
 	}
 
+	
 	public void settings(){
-		//size (640,360);
+		//size (700,500);
 		fullScreen();
 		
 	}
 
+
 	public void draw(){  //draws the shapes for each note 
-		// strokeWeight(10);
-		// drawing.drawRectangle(); //calls method from DrawingShapes class to draw a rectangle 
 		
-		// strokeWeight(10);
-		// drawing.drawCircle();
-		
-		// strokeWeight(8);
-		// stroke(0);
-		// fill(175);
-		//circle (500, 180, 100);
-	
-		
-		// stroke(127);
-		// fill(0);
-	
-		// rectMode(CENTER);
 		strokeWeight(10);
-		// square(100, 180, 100);
-		// line(320, 180, 520, 100);
-		Integer midiNoteNumber = playMelody();
+		
+		
+		Integer midiNoteNumber = playMelody(); //plays the MIDI file I have
 		if(midiNoteNumber != -1){
-			println(midiNoteNumber);
-			drawing.drawShape(midiNoteNumber);
+			println(midiNoteNumber); //prints the notes of the MIDI file in terminal 
+			drawing.drawShape(midiNoteNumber); //draws the shapes as the notes are being played
 		}
 	
 	} //end of draw function
