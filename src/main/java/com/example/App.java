@@ -34,6 +34,15 @@ public class App extends PApplet{
 
 	DrawingShapes drawing = new DrawingShapes(this);
 
+	public void keyPressed() {  //function to stop the code from running
+        if (key == 's') { // Stop music and shapes when 's' is pressed
+            player.reset(); // Stops the melody player
+            noLoop(); // Stops the shapes from drawing 
+        } else if (key == 'e') //exits processing if key pressed 
+			exit(); // Exits Processing window 
+	}
+	
+
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
