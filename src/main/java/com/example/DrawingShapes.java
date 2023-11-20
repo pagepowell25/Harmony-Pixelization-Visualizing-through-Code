@@ -14,15 +14,15 @@ public class DrawingShapes {
 
 
     public void drawShape(int pitches){  //draws shapes based on what note is played from the song 
-        if(pitches % 12 == 0) { //if the note is a C or the number 60
+        if(pitches >= 68 && pitches <= 72) { //if the note is a C or the number 60
             myProcessing.fill(255, 255, 0); //sets the color of the rectangle to yellow 
             drawRectangle();
         } //end of first if statement 
-        else if (pitches >= 52 && pitches <= 65) { //if the note token is between 52 and 65
+        else if (pitches >= 62 && pitches <= 64) { //if the note token is between 52 and 65
             myProcessing.fill(0, 0, 255); //sets the color of the circle to blue 
             drawCircle();
         }
-        else if (pitches % 10 == 0 ) { //if the note token is between 21 and 50
+        else if (pitches >= 65 && pitches <= 67 ) { //if the note token is between 21 and 50
             myProcessing.fill(0, 255, 0); //sets the color of the triangle to green
             drawTriangle();
         }
