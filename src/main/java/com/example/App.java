@@ -60,7 +60,7 @@ public class App extends PApplet{
 		// pushing)
 		//setup();
 		//playMelody();
-		generateMelody();
+		generateMelody(); //calls my generate melody function 
 		//testAndTrainMarkovChainGen();
 		
 
@@ -129,23 +129,22 @@ public class App extends PApplet{
 		// it will NOT let you know whether you have opened file to get the data in the
 		// form you need for the assignment
 
-		midiSetup(filePath);
-		generateMelody();
-		background(127);
+		midiSetup(filePath); //calls the midi file that I have inserted 
+		generateMelody(); //calls my generate melody function from MarkovChain
+		background(127); //sets the background to a light colored gray
 
 	}
 
 	
 	public void settings(){
-		//size (700,500);
-		fullScreen();
+		fullScreen(); //sets the processing window to fullscreen so the visuals can be seen bigger
 		
 	}
 
 
 	public void draw(){  //draws the shapes for each note 
 		
-		strokeWeight(10);
+		strokeWeight(10); //sets the thickness of the black border around each shape
 		
 		
 		Integer midiNoteNumber = playMelody(); //plays the MIDI file I have

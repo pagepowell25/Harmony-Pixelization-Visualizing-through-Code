@@ -2,38 +2,38 @@ package com.example;
 
 import processing.core.PApplet;
 
-public class DrawingShapes {
+public class DrawingShapes { //name of my new class is DrawingShapes
     
-    PApplet myProcessing;
+    PApplet myProcessing; //declares a variable named myProcessing of type PApplet.
 
 
 
     DrawingShapes(PApplet mainProgram){
-        myProcessing = mainProgram;
+        myProcessing = mainProgram; //defines my class, DrawingShapes in the package com.example
     }
 
 
     public void drawShape(int pitches){  //draws shapes based on what note is played from the song 
-        if(pitches >= 68 && pitches <= 72) { //if the note is a C or the number 60
+        if(pitches >= 68 && pitches <= 72) { //if the note token is between 68 or 72
             myProcessing.fill(255, 255, 0); //sets the color of the rectangle to yellow 
-            drawRectangle();
+            drawRectangle(); //calls the function to draw a rectangle
         } //end of first if statement 
-        else if (pitches >= 62 && pitches <= 64) { //if the note token is between 52 and 65
+        else if (pitches >= 62 && pitches <= 64) { //if the note token is between 62 and 64
             myProcessing.fill(0, 0, 255); //sets the color of the circle to blue 
-            drawCircle();
+            drawCircle(); //calls the function to draw a circle
         }
-        else if (pitches >= 65 && pitches <= 67 ) { //if the note token is between 21 and 50
+        else if (pitches >= 65 && pitches <= 67 ) { //if the note token is between 65 and 67
             myProcessing.fill(0, 255, 0); //sets the color of the triangle to green
-            drawTriangle();
+            drawTriangle(); //calls the function to draw a triangle
         }
         else if (pitches < 20 ) { //if the note token is below 20
             myProcessing.fill(255,200,200); //sets the color of the ellipse to white 
-            drawEllipse();
+            drawEllipse(); //calls the function to draw a triangle
         }
         else //if the note is none of the above 
         {
-            myProcessing.fill(0, 255, 255); //sets the color of the quan to cyan        
-            drawQuad();
+            myProcessing.fill(0, 255, 255); //sets the color of the quad to cyan        
+            drawQuad(); //calls the function to draw a quadrilateral
 
         }
 
@@ -52,34 +52,34 @@ public class DrawingShapes {
 
     void drawTriangle(){  //draws a triangle 
     
-        float triangleSize = 40;
-    float halfSize = triangleSize / 2;
+    float triangleSize = 40; //sets the size of the triangle 
+    float halfSize = triangleSize / 2; //sets the size of the triangle
 
-    float x1 = myProcessing.random(myProcessing.width - triangleSize);  //randomly places the shape somewhere on the screen
-    float y1 = myProcessing.random(myProcessing.height - triangleSize); //randomly places the shape somewhere on the screen
+    float x1 = myProcessing.random(myProcessing.width - triangleSize);  //randomly places the shape somewhere on the screen (first x coordinate)
+    float y1 = myProcessing.random(myProcessing.height - triangleSize); //randomly places the shape somewhere on the screen (first y coordinate)
 
-    float x2 = x1 + triangleSize;
-    float y2 = y1;
+    float x2 = x1 + triangleSize; //sets second x coordinate of triangle
+    float y2 = y1; //sets second y coordinate of triangle 
 
-    float x3 = x1 + halfSize;
-    float y3 = y1 - myProcessing.sqrt(3) * halfSize;
+    float x3 = x1 + halfSize; //sets third x coordinate of triangle
+    float y3 = y1 - myProcessing.sqrt(3) * halfSize; //sets third y coordinate of triangle 
 
-    myProcessing.triangle(x1, y1, x2, y2, x3, y3); //sets the coordinates of each point of the shape 
+    myProcessing.triangle(x1, y1, x2, y2, x3, y3); //calls the coordinates of each point of the triangle 
 
     }
 
     void drawEllipse() {  //draws an ellipse 
-        float ellipseWidth = 60;
-        float ellipseHeight = 40;
+        float ellipseWidth = 60; //sets the width of the ellipse
+        float ellipseHeight = 40; //sets the height of the ellipse 
         myProcessing.ellipse(myProcessing.random(myProcessing.width), myProcessing.random(myProcessing.height), ellipseWidth, ellipseHeight);  //randomly places the shape somewhere on the screen
       
     }
 
     void drawQuad(){ //draws a quad 
-        float quadSize = 40;
+        float quadSize = 40; //sets the size of the quad
     
-        float x1 = myProcessing.random(myProcessing.width - quadSize);
-        float y1 = myProcessing.random(myProcessing.height - quadSize);
+        float x1 = myProcessing.random(myProcessing.width - quadSize); // Add some randomness to the first x coordinate
+        float y1 = myProcessing.random(myProcessing.height - quadSize); // Add some randomness to the first y coordinate
     
         float x2 = x1 + quadSize + myProcessing.random(10);  // Add some randomness to the width
         float y2 = y1 - myProcessing.random(10);  // Randomness to the y-coordinate
@@ -90,8 +90,8 @@ public class DrawingShapes {
         float x4 = x1 - myProcessing.random(10);  // Randomness to the x-coordinate
         float y4 = y1 + quadSize - myProcessing.random(10);  // Randomness to the y-coordinate
     
-        myProcessing.quad(x1, y1, x2, y2, x3, y3, x4, y4);
+        myProcessing.quad(x1, y1, x2, y2, x3, y3, x4, y4); //calls the coordinates of each point of the quad
     }
     
 
-}// end of class 
+}// end of class DrawingShapes
